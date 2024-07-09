@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run Check SP Tests",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++20",
+                "-g",  // Include debugging information
+                "-isystem", "/opt/homebrew/opt/googletest/include",
+                "/Users/namtruong/Desktop/Projects/Check_SP_Project/Checking_Shortest_Path/main.cpp",
+                "-o", "/Users/namtruong/Desktop/Projects/Check_SP_Project/Checking_Shortest_Path/main",
+                "-L/opt/homebrew/opt/googletest/lib",
+                "-lgtest",
+                "-lgtest_main",
+                "-pthread"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Run Check SP Tests",
+            "dependsOn": "Build and Run Check SP Tests",
+            "type": "shell",
+            "command": "/Users/namtruong/Desktop/Projects/Check_SP_Project/Checking_Shortest_Path/main",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ]
+}
